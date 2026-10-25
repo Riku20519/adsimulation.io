@@ -1,0 +1,128 @@
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: #fff;
+  color: #222;
+  font-family: "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+}
+
+.page {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 18vh;
+  gap: 40px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 4vw, 2.4rem);
+  font-weight: 700;
+  text-align: center;
+    font-family: "LINE Seed JP", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: min(420px, 85vw);
+}
+
+.btn {
+  width: 100%;
+  padding: 18px 0;
+  font-size: 1.1rem;
+  color: #fff;
+  background: #1a73e8;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background .2s, transform .1s;
+    font-family: "LINE Seed JP", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+.btn:hover { background: #1765cc; }
+.btn:active { transform: scale(.98); }
+
+/* 暗い背景 */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  visibility: hidden;
+  pointer-events: none;
+  transition: background .35s ease, visibility 0s linear .35s;
+  z-index: 100;
+}
+.overlay.open {
+  background: rgba(0, 0, 0, .72);
+  visibility: visible;
+  pointer-events: auto;
+  transition: background .35s ease;
+}
+
+/* ポップアップ本体 */
+.ad {
+  position: relative;
+  width: min(92vw, 520px);
+  max-height: 92vh;
+  background: #fff;
+  border-radius: 12px;
+  padding: 44px 16px 16px;
+  box-shadow: 0 12px 40px rgba(0, 0, 0, .4);
+  opacity: 0;
+  transform: translateY(0px) scale(.9);
+  transition: opacity .35s ease, transform .35s cubic-bezier(.2, .9, .3, 1.2);
+}
+.overlay.open .ad {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+.ad-label {
+  position: absolute;
+  top: 12px;
+  left: 14px;
+  font-size: .75rem;
+  color: #5f6368;
+  border: 1px solid #dadce0;
+  border-radius: 4px;
+  padding: 1px 6px;
+    font-family: "LINE Seed JP", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.close {
+  position: absolute;
+  top: 6px;
+  right: 8px;
+  width: 36px;
+  height: 36px;
+  border: none;
+  border-radius: 50%;
+  background: transparent;
+  font-size: 28px;
+  line-height: 1;
+  color: #5f6368;
+  cursor: pointer;
+  transition: background .2s;
+}
+.close:hover { background: #eee; }
+
+.ad-body img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 1 / 0.85;
+  object-fit: cover;
+  border-radius: 8px;
+}
