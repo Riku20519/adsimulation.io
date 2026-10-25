@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>総探 広告シミュレーション</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=LINE+Seed+JP:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <main class="page">
+    <h1>総探　広告シミュレーション</h1>
+    <div class="buttons">
+      <button class="btn" data-ad="ad1">広告１</button>
+      <button class="btn" data-ad="ad2">広告２</button>
+    </div>
+  </main>
+
+  <!-- 広告1 -->
+  <div class="overlay" id="ad1" aria-hidden="true">
+    <div class="ad" role="dialog" aria-label="広告1">
+      <span class="ad-label">広告</span>
+      <button class="close" aria-label="閉じる">&times;</button>
+      <div class="ad-body">
+        <img src="popup1.png">
+      </div>
+    </div>
+  </div>
+
+  <!-- 広告2 -->
+  <div class="overlay" id="ad2" aria-hidden="true">
+    <div class="ad" role="dialog" aria-label="広告2">
+      <span class="ad-label">広告</span>
+      <button class="close" aria-label="閉じる">&times;</button>
+      <div class="ad-body">
+        <img src="popup2.png">
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
